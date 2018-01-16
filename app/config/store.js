@@ -30,7 +30,7 @@ const reducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // gets the current screen from navigation state
-function getCurrentRouteName (navigationState) {
+function getCurrentRouteName (navigationState: {}): string {
   if (!navigationState) {
     return null;
   }
@@ -86,7 +86,7 @@ const screenTracking = ({ getState }) => next => action => {
   return result;
 };
 
-export function configureStore (initialState) {
+export function configureStore (initialState: {}): {} {
   return createStore(reducer, initialState, composeEnhancers(applyMiddleware(thunk, screenTracking), autoRehydrate()));
 }
 

@@ -18,7 +18,7 @@ class Stack extends Component {
     navigation: PropTypes.shape().isRequired
   };
 
-  constructor (props) {
+  constructor (props: {}) {
     super(props);
     BackHandler.addEventListener('hardwareBackPress', this.backAction);
   }

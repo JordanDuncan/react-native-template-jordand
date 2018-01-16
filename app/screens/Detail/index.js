@@ -24,7 +24,7 @@ class Home extends Component {
    * Construct component class
    * @param {object} props
    */
-  constructor (props) {
+  constructor (props: {}) {
     super(props);
 
     this.state = {

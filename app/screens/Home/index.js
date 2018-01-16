@@ -31,7 +31,7 @@ class Home extends Component {
     MainStackActions: PropTypes.object
   };
 
-  constructor (props) {
+  constructor (props: {}) {
     super(props);
 
     this.state = {
