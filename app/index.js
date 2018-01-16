@@ -41,6 +41,7 @@ class Root extends Component {
   }
 }
 
-AppRegistry.registerComponent('TestHello', () => Root);
+// register this as the root component in the app
+AppRegistry.registerComponent('HelloWorld', () => Root);
 
 export default Root;
