@@ -23,6 +23,8 @@ const navigatorConfiguration = {
   headerMode: 'none'
 };
 
+// set title of initial screen
 export const InitialScreen = 'MainTabs';
 
+// export the StackNavigator object
 export const MainStack = StackNavigator(routeConfiguration, navigatorConfiguration);

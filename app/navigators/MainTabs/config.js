@@ -27,6 +27,8 @@ const navigatorConfiguration = {
   tabBarPosition: 'bottom'
 };
 
+// set the initial screen
 export const InitialScreen = 'Home';
 
+// export the TabNavigator object
 export const MainTabs = TabNavigator(routeConfiguration, navigatorConfiguration);
