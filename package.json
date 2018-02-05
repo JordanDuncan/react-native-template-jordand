@@ -1,6 +1,6 @@
 {
 	"name": "react-native-template-jordand",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"config": {
 		"filament": {
 			"package": "filament-jordandrn"
