@@ -22,8 +22,9 @@ This repository supports Filament CLI when using the `filament-jordandrn` packag
   }
   ```
 
-You'll now be able to use filament commands to generate screens, components and network controllers:
+You'll now be able to use filament commands to generate screens, components, network  and redux controllers:
 
 - `filament new component <componentName>`
 - `filament new screen <screenName>`
 - `filament new network <networkControllerName>`
+- `filament new redux <reduxName>`
