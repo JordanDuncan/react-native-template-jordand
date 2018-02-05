@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 
-import { MainTabs } from './config';
+import { MainTabs, addReduxListener } from './config';
 
 class Tabs extends Component {
   static propTypes = {
@@ -19,6 +19,7 @@ class Tabs extends Component {
 
   render () {
     const { dispatch, navigation } = this.props;
+    const addListener = addReduxListener();
 
     return (
       <MainTabs
@@ -27,7 +28,8 @@ class Tabs extends Component {
         }}
         navigation={addNavigationHelpers({
           dispatch,
-          state: navigation
+          state: navigation,
+          addListener
         })}
       />
     );

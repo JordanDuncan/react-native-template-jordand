@@ -8,11 +8,15 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { autoRehydrate } from 'redux-persist';
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
+
+// /**
+//  * Import middlewares from navigators (react-navigation)
+//  */
 
 /*
  * Combine reducers
  */
-
 import TestData from 'app/redux/TestData';
 import MainStack from 'app/redux/MainStack';
 import MainTabs from 'app/redux/MainTabs';
@@ -86,8 +90,21 @@ const screenTracking = ({ getState }) => next => action => {
   return result;
 };
 
+const middleware = [
+  thunk,
+  screenTracking,
+  createReactNavigationReduxMiddleware(
+    'MainStack',
+    state => state.MainStack,
+  ),
+  createReactNavigationReduxMiddleware(
+    'MainTabs',
+    state => state.MainTabs,
+  )
+];
+
 export function configureStore (initialState: {}): {} {
-  return createStore(reducer, initialState, composeEnhancers(applyMiddleware(thunk, screenTracking), autoRehydrate()));
+  return createStore(reducer, initialState, composeEnhancers(applyMiddleware(...middleware), autoRehydrate()));
 }
 
 export const store = configureStore();

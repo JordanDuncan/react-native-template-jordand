@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 
-import { MainStack } from './config';
+import { MainStack, addReduxListener } from './config';
 
 class Stack extends Component {
   static propTypes = {
@@ -27,6 +27,7 @@ class Stack extends Component {
 
   render () {
     const { dispatch, navigation } = this.props;
+    const addListener = addReduxListener();
 
     return (
       <MainStack
@@ -35,7 +36,8 @@ class Stack extends Component {
         }}
         navigation={addNavigationHelpers({
           dispatch,
-          state: navigation
+          state: navigation,
+          addListener
         })}
       />
     );
