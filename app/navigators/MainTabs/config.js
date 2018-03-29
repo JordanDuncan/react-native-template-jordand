@@ -4,7 +4,7 @@
  */
 
 import { TabNavigator } from 'react-navigation';
-import { createReduxBoundAddListener, createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
 import HomeScreen from 'app/screens/Home';
 import Tab2 from 'app/screens/Tab2';
