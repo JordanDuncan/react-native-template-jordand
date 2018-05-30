@@ -37,7 +37,7 @@ class Home extends Component {
   /**
    * Set a timestamp in the component state
    */
-  setTime () {
+  setTime = () => {
     this.setState({
       timestamp: 'hello'
     });
@@ -46,7 +46,7 @@ class Home extends Component {
   /**
    * Go back to the previous page in the stack
    */
-  goBack () {
+  goBack = () => {
     this.props.MainStackActions.goBack();
   }
 
@@ -59,8 +59,8 @@ class Home extends Component {
         <Text style={styles.text}>{this.state.timestamp}</Text>
         <Text style={styles.text}>{this.navState.params.passedValue}</Text>
         <FancyText>This is FancyText</FancyText>
-        <Button title="Set Timestamp" onPress={this.setTime.bind(this)} />
-        <Button title="Go Back" onPress={this.goBack.bind(this)} />
+        <Button title="Set Timestamp" onPress={this.setTime} />
+        <Button title="Go Back" onPress={this.goBack} />
       </View>
     );
   }

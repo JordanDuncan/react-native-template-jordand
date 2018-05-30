@@ -43,7 +43,7 @@ class Home extends Component {
    * Open 'Detail' screen
    * @param {String} passedValue
    */
-  openDetailPage (passedValue: String) {
+  openDetailPage = (passedValue: String) => e => {
     this.props.MainStackActions.openScreen('Detail', {
       passedValue: passedValue
     });
@@ -53,7 +53,7 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Welcome to React Native!</Text>
-        <Button title="Open Detail Page" onPress={this.openDetailPage.bind(this, 'This is passed to detail')} />
+        <Button title="Open Detail Page" onPress={this.openDetailPage('This is passed to detail')} />
       </View>
     );
   }

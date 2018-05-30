@@ -32,7 +32,7 @@ class Home extends Component {
     peopleList: PropTypes.arrayOf(PropTypes.object)
   };
 
-  updatePeopleList () {
+  updatePeopleList = () => {
     this.props.TestDataActions.updatePeople();
   }
 
@@ -43,7 +43,7 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.text}>This is tab 2.</Text>
         <Text style={styles.text}>People List includes: {peopleString}</Text>
-        <Button title="Update People List" onPress={this.updatePeopleList.bind(this)} />
+        <Button title="Update People List" onPress={this.updatePeopleList} />
       </View>
     );
   }

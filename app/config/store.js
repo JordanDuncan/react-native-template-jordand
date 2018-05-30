@@ -95,11 +95,11 @@ const middleware = [
   screenTracking,
   createReactNavigationReduxMiddleware(
     'MainStack',
-    state => state.MainStack,
+    state => state.MainStack
   ),
   createReactNavigationReduxMiddleware(
     'MainTabs',
-    state => state.MainTabs,
+    state => state.MainTabs
   )
 ];
 
