@@ -6,7 +6,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 
 import { MainTabs, addReduxListener } from './config';
@@ -26,11 +25,11 @@ class Tabs extends Component {
         ref={ref => {
           this.navigator = ref;
         }}
-        navigation={addNavigationHelpers({
+        navigation={{
           dispatch,
           state: navigation,
           addListener
-        })}
+        }}
       />
     );
   }

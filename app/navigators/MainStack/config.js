@@ -4,7 +4,7 @@
  */
 
 import { StackNavigator } from 'react-navigation';
-import { createReduxBoundAddListener, createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 
 import MainTabs from 'app/navigators/MainTabs';
 import Detail from 'app/screens/Detail';
@@ -28,7 +28,7 @@ const navigatorConfiguration = {
 export const InitialScreen = 'MainTabs';
 
 // export function that binds listener
-export function addReduxListener() {
+export function addReduxListener () {
   return createReduxBoundAddListener('MainStack');
 }
 

@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { addNavigationHelpers } from 'react-navigation';
 import { connect } from 'react-redux';
 
 import { MainStack, addReduxListener } from './config';
@@ -34,11 +33,11 @@ class Stack extends Component {
         ref={ref => {
           this.navigator = ref;
         }}
-        navigation={addNavigationHelpers({
+        navigation={{
           dispatch,
           state: navigation,
           addListener
-        })}
+        }}
       />
     );
   }

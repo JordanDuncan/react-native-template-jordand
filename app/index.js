@@ -1,6 +1,7 @@
 /*
  * app/index.js
  * Cross platform entry point for your app.
+ * @flow
  */
 
 import React, { Component } from 'react';
@@ -15,11 +16,16 @@ import { store } from 'app/config/store';
 
 import MainStack from 'app/navigators/MainStack';
 
-class Root extends Component {
+type Props = {};
+type State = { isLoggedIn: boolean, loaded: boolean };
+
+class Root extends Component<Props, State> {
   state = {
     isLoggedIn: false,
     loaded: false
   };
+
+  store: {};
 
   constructor (props) {
     super(props);

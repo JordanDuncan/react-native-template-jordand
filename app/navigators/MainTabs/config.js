@@ -32,7 +32,7 @@ const navigatorConfiguration = {
 export const InitialScreen = 'Home';
 
 // export function that binds listener
-export function addReduxListener() {
+export function addReduxListener () {
   return createReduxBoundAddListener('MainTabs');
 }
 
