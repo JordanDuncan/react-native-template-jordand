@@ -8,9 +8,10 @@ import { View, Text, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 // import redux functions to connect controller to app state
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as MainStackActions from 'app/redux/MainStack';
+
+// import MainStack navigation controller
+import { MainStack } from 'app/navigators';
 
 import FancyText from 'app/components/FancyText';
 
@@ -39,7 +40,7 @@ class Home extends Component {
    */
   setTime = () => {
     this.setState({
-      timestamp: 'hello'
+      timestamp: new Date().getTime()
     });
   }
 
@@ -47,7 +48,7 @@ class Home extends Component {
    * Go back to the previous page in the stack
    */
   goBack = () => {
-    this.props.MainStackActions.goBack();
+    MainStack.goBack();
   }
 
   /**
@@ -76,8 +77,6 @@ const mapStateToProps = state => ({});
  * Bind redux actions to component
  * @param {*} dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  MainStackActions: bindActionCreators(MainStackActions, dispatch)
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,49 +1,34 @@
 /*
- * app/routers/MainStack/index.js
- * Defines MainStack and connects it to redux.
+ * app/navigators/MainStack/index.js
+ * Defines MainStack and connects it to the singleton classes used to trigger updates
  */
 
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
-import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
+import { MainStack as MainStackGlobal, NavigationTracker } from 'app/navigators';
 
-import { MainStack, addReduxListener } from './config';
+import { MainStack } from './config';
 
-class Stack extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    navigation: PropTypes.shape().isRequired
-  };
-
-  constructor (props: {}) {
+export default class Stack extends Component {
+  constructor (props) {
     super(props);
     BackHandler.addEventListener('hardwareBackPress', this.backAction);
   }
 
   backAction = () => this.navigator.props.navigation.goBack();
-
+  
   render () {
-    const { dispatch, navigation } = this.props;
-    const addListener = addReduxListener();
-
     return (
       <MainStack
+        onNavigationStateChange={(prevState, currentState) => {
+          NavigationTracker.onNavigate('MainStack', currentState);
+        }}
         ref={ref => {
           this.navigator = ref;
-        }}
-        navigation={{
-          dispatch,
-          state: navigation,
-          addListener
+          MainStackGlobal.setNavigator(ref);
         }}
       />
     );
   }
 }
-
-// connect redux state to MainStack props.
-export default connect(state => ({
-  navigation: state.MainStack
-}))(Stack);

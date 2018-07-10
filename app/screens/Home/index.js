@@ -8,9 +8,10 @@ import { View, Text, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 // import redux functions to connect controller to app state
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as MainStackActions from 'app/redux/MainStack';
+
+// import MainStack navigation controller
+import { MainStack } from 'app/navigators';
 
 // import screens styles
 import styles from './styles';
@@ -22,7 +23,7 @@ class Home extends Component {
       title: 'Home',
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor, focused }) => {
-        return <Text style={{ color: tintColor }}>dsfsdf</Text>;
+        return <Text style={{ color: tintColor }}>Tab1</Text>;
       }
     };
   };
@@ -43,9 +44,9 @@ class Home extends Component {
    * Open 'Detail' screen
    * @param {String} passedValue
    */
-  openDetailPage = (passedValue: String) => e => {
-    this.props.MainStackActions.openScreen('Detail', {
-      passedValue: passedValue
+  openDetailPage = (passedValue: string) => e => {
+    MainStack.navigate('Detail', {
+      passedValue
     });
   }
 
@@ -69,9 +70,7 @@ const mapStateToProps = state => ({});
  * Bind redux actions to component
  * @param {*} dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  MainStackActions: bindActionCreators(MainStackActions, dispatch)
-});
+const mapDispatchToProps = dispatch => ({});
 
 // export the connect function
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

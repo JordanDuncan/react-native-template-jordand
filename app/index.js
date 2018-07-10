@@ -16,6 +16,8 @@ import { store } from 'app/config/store';
 
 import MainStack from 'app/navigators/MainStack';
 
+console.ignoredYellowBox = ['You should only render'];
+
 type Props = {};
 type State = { isLoggedIn: boolean, loaded: boolean };
 

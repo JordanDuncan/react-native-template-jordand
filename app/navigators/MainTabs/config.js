@@ -3,8 +3,7 @@
  * Config file for MainTabs.
  */
 
-import { TabNavigator } from 'react-navigation';
-import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
+import { createBottomTabNavigator } from 'react-navigation';
 
 import HomeScreen from 'app/screens/Home';
 import Tab2 from 'app/screens/Tab2';
@@ -31,10 +30,5 @@ const navigatorConfiguration = {
 // set the initial screen
 export const InitialScreen = 'Home';
 
-// export function that binds listener
-export function addReduxListener () {
-  return createReduxBoundAddListener('MainTabs');
-}
-
 // export the TabNavigator object
-export const MainTabs = TabNavigator(routeConfiguration, navigatorConfiguration);
+export const MainTabs = createBottomTabNavigator(routeConfiguration, navigatorConfiguration);

@@ -1,40 +1,29 @@
 /*
- * app/navigators/MainStack/index.js
- * Defines MainTabs and connects it to redux.
+ * app/navigators/MainTabs/index.js
+ * Defines MainTabs and connects it to the singleton classes used to trigger updates
  */
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
+import { MainTabs as MainTabsGlobal, NavigationTracker } from 'app/navigators';
 
-import { MainTabs, addReduxListener } from './config';
+import { MainTabs } from './config';
 
-class Tabs extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    navigation: PropTypes.shape().isRequired
-  };
+export default class Tabs extends Component {
+  static router = MainTabs.router;
 
   render () {
-    const { dispatch, navigation } = this.props;
-    const addListener = addReduxListener();
-
     return (
       <MainTabs
+        onNavigationStateChange={(prevState, currentState) => {
+          NavigationTracker.onNavigate('MainTabs', currentState);
+        }}
         ref={ref => {
           this.navigator = ref;
+          MainTabsGlobal.setNavigator(ref);
         }}
-        navigation={{
-          dispatch,
-          state: navigation,
-          addListener
-        }}
+        // navigation={this.props.navigation}
       />
     );
   }
 }
-
-export default connect(state => ({
-  navigation: state.MainTabs
-}))(Tabs);
