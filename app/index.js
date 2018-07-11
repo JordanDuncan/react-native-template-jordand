@@ -10,7 +10,7 @@ import { AppRegistry, AsyncStorage, Platform } from 'react-native';
 // import redux provider to wrap whole app in
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
-import FilesystemStorage from 'redux-persist-filesystem-storage';
+import FSStorage from 'redux-persist-fs-storage';
 
 import { store } from 'app/config/store';
 
@@ -35,7 +35,7 @@ class Root extends Component<Props, State> {
 
     // set redux-persist options to store data
     persistStore(this.store, {
-      storage: Platform.OS === 'ios' ? AsyncStorage : FilesystemStorage,
+      storage: Platform.OS === 'ios' ? AsyncStorage : FSStorage(),
       whitelist: ['TestData']
     });
   }
