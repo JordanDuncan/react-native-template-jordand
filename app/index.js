@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, AsyncStorage, Platform } from 'react-native';
+import { AppRegistry, AsyncStorage, Platform, YellowBox } from 'react-native';
 
 // import redux provider to wrap whole app in
 import { Provider } from 'react-redux';
@@ -16,7 +16,7 @@ import { store } from 'app/config/store';
 
 import MainStack from 'app/navigators/MainStack';
 
-console.ignoredYellowBox = ['You should only render'];
+YellowBox.ignoreWarnings(['You should only render']);
 
 type Props = {};
 type State = { isLoggedIn: boolean, loaded: boolean };
