@@ -18,17 +18,18 @@ const routeConfiguration = {
   }
 };
 
+// set the initial screen
+export const InitialScreen = 'Home';
+
 // navigator config (docs on react-navigation website.)
 const navigatorConfiguration = {
   lazy: true,
   backBehavior: 'none',
   swipeEnabled: false,
   animationEnabled: false,
-  tabBarPosition: 'bottom'
+  tabBarPosition: 'bottom',
+  initialRouteName: InitialScreen
 };
-
-// set the initial screen
-export const InitialScreen = 'Home';
 
 // export the TabNavigator object
 export const MainTabs = createBottomTabNavigator(routeConfiguration, navigatorConfiguration);

@@ -18,13 +18,14 @@ const routeConfiguration = {
   }
 };
 
-// navigator config (docs on react-navigation website.)
-const navigatorConfiguration = {
-  headerMode: 'none'
-};
-
 // set title of initial screen
 export const InitialScreen = 'MainTabs';
+
+// navigator config (docs on react-navigation website.)
+const navigatorConfiguration = {
+  headerMode: 'none',
+  initialRouteName: InitialScreen
+};
 
 // export the StackNavigator object
 export const MainStack = createStackNavigator(routeConfiguration, navigatorConfiguration);
