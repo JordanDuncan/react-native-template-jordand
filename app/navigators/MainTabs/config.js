@@ -3,7 +3,7 @@
  * Config file for MainTabs.
  */
 
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 import HomeScreen from 'app/screens/Home';
 import Tab2 from 'app/screens/Tab2';
@@ -18,18 +18,17 @@ const routeConfiguration = {
   }
 };
 
-// set the initial screen
-export const InitialScreen = 'Home';
-
 // navigator config (docs on react-navigation website.)
 const navigatorConfiguration = {
   lazy: true,
   backBehavior: 'none',
   swipeEnabled: false,
   animationEnabled: false,
-  tabBarPosition: 'bottom',
-  initialRouteName: InitialScreen
+  tabBarPosition: 'bottom'
 };
 
+// set the initial screen
+export const InitialScreen = 'Home';
+
 // export the TabNavigator object
-export const MainTabs = createBottomTabNavigator(routeConfiguration, navigatorConfiguration);
+export const MainTabs = createAppContainer(createBottomTabNavigator(routeConfiguration, navigatorConfiguration));

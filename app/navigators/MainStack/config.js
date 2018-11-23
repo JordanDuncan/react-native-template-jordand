@@ -3,7 +3,7 @@
  * Config file for MainStack.
  */
 
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import MainTabs from 'app/navigators/MainTabs';
 import Detail from 'app/screens/Detail';
@@ -18,14 +18,13 @@ const routeConfiguration = {
   }
 };
 
+// navigator config (docs on react-navigation website.)
+const navigatorConfiguration = {
+  headerMode: 'none'
+};
+
 // set title of initial screen
 export const InitialScreen = 'MainTabs';
 
-// navigator config (docs on react-navigation website.)
-const navigatorConfiguration = {
-  headerMode: 'none',
-  initialRouteName: InitialScreen
-};
-
 // export the StackNavigator object
-export const MainStack = createStackNavigator(routeConfiguration, navigatorConfiguration);
+export const MainStack = createAppContainer(createStackNavigator(routeConfiguration, navigatorConfiguration));
