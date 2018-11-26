@@ -36,6 +36,7 @@ class Root extends Component<Props, State> {
     // set redux-persist options to store data
     persistStore(this.store, {
       storage: Platform.OS === 'ios' ? AsyncStorage : FSStorage(),
+      keyPrefix: 'HelloWorld',
       whitelist: ['TestData']
     });
   }
